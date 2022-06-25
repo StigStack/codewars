@@ -10,3 +10,21 @@ function sumTwoSmallestNumbers(numbers) {
     numbers.sort((a, b) => a - b);
     return numbers[0] + numbers[1];
 }
+
+function sumTwoSmallestNumbers(numbers) {  
+    let min = Infinity;
+    let secondMin = Infinity;
+
+    for (i = 0; i < numbers.length; i++) {
+        let num = numbers[i];
+        if (num > -1) {
+            if(num < min) {
+                secondMin = min;
+                min = num;
+            }else if (num < secondMin) {
+                secondMin = num;
+            }
+        }
+    }
+    return min + secondMin
+}
